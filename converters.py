@@ -45,16 +45,28 @@ class Converters:
             if(len_of_key > len_of_plain_text):
                 #add zero to the plain text
                 len_difference = len_of_key - len_of_plain_text
-                pad_number = len_difference // 2
+                pad_number = len_difference
                 print(pad_number)
-                pad_str = key.hex()*pad_number
+                pad_str = "0"*pad_number
                 print(pad_str)
+                new_plain_text = pad_str + plain_text.hex()
+                print(new_plain_text)
+                print(key.hex())
+                print()
+                print()
+                return [bytearray.fromhex(new_plain_text), bytearray(key)]
             elif(len_of_key < len_of_plain_text):
                 len_difference = len_of_plain_text - len_of_key
-                pad_number = len_difference // 2
+                pad_number = len_difference
                 print(pad_number)
-                pad_str = key.hex()*pad_number
+                pad_str = "0"*pad_number
                 print(pad_str)
+                new_key = pad_str + key.hex()
+                print(new_key)
+                print(plain_text.hex())
+                print()
+                print()
+                return [bytearray.fromhex(new_key), bytearray(plain_text)]
             elif(len_of_key == len_of_plain_text):
                 len_difference = 0
                 print(len_difference)

@@ -68,6 +68,6 @@ for char_alp in alphabet:
         #print(result.decode())
 
 
-converter.pad_key("a".encode(), "asdfasd".encode())
-
+key, plain_text = converter.pad_key("aaf".encode(), "asdfasd".encode())
+print(key, plain_text)
 ######question 3#######
