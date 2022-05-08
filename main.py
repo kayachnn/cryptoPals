@@ -1,10 +1,9 @@
 import base64
-from os import lseek
 import re
 from unittest import result
 from converters import Converters
 import string
-
+import os
 #exercise 1
 #hex to base64
 
@@ -67,7 +66,10 @@ for char_alp in alphabet:
         result = bytes(a ^ b for(a, b) in zip(bytearray.fromhex(m_key), bytearray.fromhex(cipher_text)))
         #print(result.decode())
 
+key = os.urandom(32)
+iv = os.urandom(16)
+plain_text_byte_array = "asdfasdaefqwefasxaaaadasfdfasdfasdfas".encode()
+converter.cipher(iv, key, plain_text_byte_array)
+#converter.pad_key(key, "asdfasdasdfasdfasdfsadfasda".encode(), 0)
 
-key, plain_text = converter.pad_key("aaf".encode(), "asdfasd".encode())
-print(key, plain_text)
 ######question 3#######
